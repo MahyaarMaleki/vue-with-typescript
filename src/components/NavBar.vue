@@ -21,11 +21,11 @@ const emit = defineEmits<{
   <v-app-bar height="70" :elevation="2">
     <v-app-bar-title id="hyrule-jobs-title">Hyrule Jobs</v-app-bar-title>
     <div class="position-absolute d-flex align-center justify-center w-100 h-100">
-      <v-btn-toggle mandatory variant="outlined" v-model="activeIndex">
-        <v-btn @click="emit('sortEvent', 'salary')">Sort by salary</v-btn>
-        <v-btn @click="emit('sortEvent', 'title')">Sort by title</v-btn>
-        <v-btn @click="emit('sortEvent', 'location')">Sort by location</v-btn>
-      </v-btn-toggle>
+      <v-tabs mandatory v-model="activeIndex">
+        <v-tab @click="emit('sortEvent', 'salary')" :value="0">Sort by salary</v-tab>
+        <v-tab @click="emit('sortEvent', 'title')" :value="1">Sort by title</v-tab>
+        <v-tab @click="emit('sortEvent', 'location')" :value="2">Sort by location</v-tab>
+      </v-tabs>
     </div>
     <v-switch
         class="d-flex align-center me-2"
